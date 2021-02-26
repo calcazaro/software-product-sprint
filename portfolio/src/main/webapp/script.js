@@ -17,7 +17,7 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['"Im going to make him an offer he cant refuse"-The GodFather(1972)', '"May the Force be with you"-Star Wars(1977)', '"Heres Johnny!"-The Shining(1980)', '"You talking to me?"-Taxi Driver(1976)'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
