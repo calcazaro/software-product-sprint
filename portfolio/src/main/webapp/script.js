@@ -40,20 +40,18 @@ async function showArtist(){
     const responseFromServer = await fetch('/artists');
     const artists = await responseFromServer.json();
 
-    const randomArtist = artists[Math.floor(Math.random() * artists.length)];           //does not work but should get random artist
-    const artistListElement = document.getElementById('/randomArtist-container');
+    console.log(artists)
+
+    const randomArtist = artists[Math.floor(Math.random() * artists.length)];           
+    const artistListElement = document.getElementById('randomArtist-container');
     artistListElement.innerHTML = randomArtist;
 
     artistListElement.appendChild(
-        createListElement('Artist is: ' + artists));
-    artistListElement.appendChild(
-        createListElement('Artist is:' + artist));
-    artistListElement.appendChild(
-        createListElement('Artist is: ' + artist));
+        createListElement('Random artist is: ' + randomArtist));
 }
 
 function createListElement(text){
     const liElement = document.createElement('li');
-    liElement.innerTest = text;
+    liElement.innerText = text;
     return liElement
 }
