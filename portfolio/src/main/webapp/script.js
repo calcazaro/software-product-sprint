@@ -34,3 +34,26 @@ async function showMessage() {
   const messageContainer = document.getElementById('message-container');
   messageContainer.innerText = textFromResponse;
 }
+
+//random message from ArrayList function
+async function showArtist(){
+    const responseFromServer = await fetch('/artists');
+    const artists = await responseFromServer.json();
+
+    const randomArtist = artists[Math.floor(Math.random() * artists.length)];           //does not work but should get random artist
+    const artistListElement = document.getElementById('/randomArtist-container');
+    artistListElement.innerHTML = randomArtist;
+
+    artistListElement.appendChild(
+        createListElement('Artist is: ' + artists));
+    artistListElement.appendChild(
+        createListElement('Artist is:' + artist));
+    artistListElement.appendChild(
+        createListElement('Artist is: ' + artist));
+}
+
+function createListElement(text){
+    const liElement = document.createElement('li');
+    liElement.innerTest = text;
+    return liElement
+}
