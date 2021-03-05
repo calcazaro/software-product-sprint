@@ -1,5 +1,7 @@
 package com.google.sps.servlets;
 
+import java.util.ArrayList;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +14,20 @@ public class HelloWorldServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //response.setContentType("text/html;");
+    //response.getWriter().println("Hello world! This is Carlos Alcazar");
+  
+  
+    ArrayList<String> artists = new ArrayList<String>();
+    artists.add("Kanye West");
+    artists.add("Eminem");
+    artists.add("Drake");
+
+    Gson gson = new Gson();
+    String json = gson.toJson(artists);
+
     response.setContentType("text/html;");
-    response.getWriter().println("Hello world! This is Carlos Alcazar");
-  }
+    response.getWriter().println(json);
+    }
 }
+
