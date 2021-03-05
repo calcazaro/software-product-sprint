@@ -40,10 +40,8 @@ async function showArtist(){
     const responseFromServer = await fetch('/artists');
     const artists = await responseFromServer.json();
 
-    console.log(artists)
-
     const randomArtist = artists[Math.floor(Math.random() * artists.length)];           
-    const artistListElement = document.getElementById('randomArtist-container');
+    const artistListElement = document.getElementById('random-artist-container');
     artistListElement.innerHTML = randomArtist;
 
     artistListElement.appendChild(
