@@ -15,6 +15,9 @@
 /**
  * Adds a random greeting to the page.
  */
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
 function addRandomGreeting() {
   const greetings =
       ['"Im going to make him an offer he cant refuse"-The GodFather(1972)', '"May the Force be with you"-Star Wars(1977)', '"Heres Johnny!"-The Shining(1980)', '"You talking to me?"-Taxi Driver(1976)'];
@@ -52,4 +55,32 @@ function createListElement(text){
     const liElement = document.createElement('li');
     liElement.innerText = text;
     return liElement
+}
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'company');
+  data.addColumn('number', 'Count');
+        data.addRows([
+          ['Spotify', 35],
+          ['Apple Music', 19],
+          ['Amazon', 15],
+          ['Tencent', 11],
+          ['YouTube', 6],
+          ['Others', 14] 
+        ]);
+
+  const options = {
+    'title': 'Music streaming subscribers worldwide in 2019, by company',
+    'width':500,
+    'height':400
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
 }
