@@ -60,7 +60,7 @@ function createListElement(text){
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-/** Creates a chart and adds it to the page. */
+/** Creates a pie chart showing music streaming subscibers by company and adds it to the page. */
 function drawChart() {
   const data = new google.visualization.DataTable();
   data.addColumn('string', 'company');
